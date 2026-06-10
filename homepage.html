@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>MindEase</title>
+        
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        
+        <!-- Bootstrap 5 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+        
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+        <!-- Social Media Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+            
+            body{
+                width:100%;
+                overflow-x:hidden;
+                background:#b9f0c6;
+                color:#222;
+            }
+            
+            /* Navbar */
+            .navbar{
+                /*background:#c1c1c2;*/
+                position: absolute; 
+                width: 100%;
+                z-index: 1000;
+                padding: 20px 40px;
+            }
+            
+            /* MindEase Logo*/
+            .navbar-brand img{
+                width: 60px;
+                height: 60px;
+                margin-right: 10px;
+            }
+
+            .navbar-brand{
+                display: flex;
+            }
+            
+            .navbar-brand p{
+            color: #fff !important;
+            font-size: 28px;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 4px;
+            margin-top: 15px;
+        }
+
+        .navbar-brand span{
+            font-size: 28px;
+            color:#6b9af0;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 4px;
+            margin-top: 15px;
+        }
+
+        .navbar-toggler{
+            color: #d1b36a;
+        }
+
+        /*center menu */
+        .navbar-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+        }
+
+        .navbar1{
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar-nav{
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link{
+            color:#ffffff !important;
+            margin-left: 20px;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Impact', sans-serif ;
+            font-size: 15px;
+            letter-spacing: 2px;
+            /*text-transform: uppercase;*/
+            /*text-decoration: underline;*/
+            transition: 0.3s;
+        }
+
+        /*.nav-link:hover{
+            
+        }*/
+
+        .navbar ul li a{
+            /*background-color: #959090 !important;*/
+            align-items: center;
+            justify-items: center;
+            margin-right: 1px;
+            padding: 10px 15px;
+            transition: 0.1s;
+        }
+
+        .navbar1 ul li a:hover{
+            border-radius: 1px;
+            border-bottom: 2px solid white;
+            /*background-color: #d1b36a;*/
+            /*color: black;*/
+            /*opacity: 0.9;*/
+            /*transform: scale(1.05);*/
+        }
+
+        /* right icons */
+        .navbar2{
+            position: absolute; 
+            right: 20px;
+        }
+
+        .nav-link2{
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .navbar-icons{
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .nav-link2:hover{
+            /*color: grey;*/
+            transform: scale(1.2);
+        }
+
+        .navbar2 ul li a{
+            font-size: 25px;
+        }
+
+        .navbar2 ul li a:hover{
+            border-radius: 10px;
+            /*border-bottom: 2px solid white;*/
+            /*background-color: #d1b36a;*/
+            color: rgb(133, 133, 133);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* first section */
+        .hero{
+            height:100vh;
+            display:flex;
+            align-items:center;
+            background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5)),
+            url("images/happy.jpg")  center/cover no-repeat;
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(0.4px);
+            z-index: -1;
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            text-align: center;
+            color:white;
+            padding:80px 0;
+            /*position: relative;*/
+        }
+
+        .hero h1{
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 1.2;
+            letter-spacing: 2px;
+        }
+
+        .hero p{
+            margin: auto;
+            font-size: 18px;
+            color: #d9dadc;
+            margin-top: 20px;
+            max-width: 700px;
+        }
+
+        /* Get Started Button */
+        .hero-btn{
+            margin-top: 50px;
+            /*margin-left: 30px;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .hero-btn a{
+            padding: 15px 20px;
+            border-radius: 30px;
+            color: white;
+            font-size: 15px;
+            text-decoration: none;
+            transition: 0.3s; 
+        }
+
+        .getStartedBtn{
+            border: 2px solid white;
+            margin-left: 14px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            /*background: transparent;*/
+            color: white;
+        }
+
+        .getStartedBtn:hover{
+            background: #c7a85c;
+            color: black;
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .hero img{
+            width: 100%;
+            border-radius:20px;
+        }
+
+
+        /*contact us*/
+        .btn-custom{
+            background: #c7a85c;
+            color:#fff;
+            padding:12px 28px;
+            border:none;
+            border-radius:10px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .btn-custom:hover{
+            /*background:#0ea5e9;*/
+            opacity: 0.9; 
+            transform: scale(1.05); 
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .section-title h2{
+            font-weight:700;
+            color:#0f172a;
+        }
+
+        .service-card{
+            background:#fff;
+            border-radius:18px;
+            padding:30px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+            transition:0.3s;
+            height:100%;
+        }
+
+        .service-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .service-card i{
+            font-size:45px;
+            color:#38bdf8;
+            margin-bottom:20px;
+        }
+
+        .ai-section{
+            background:#0f172a;
+            color:#fff;
+            padding:80px 0;
+        }
+
+        .feature-box{
+            padding:25px;
+            background:#1e293b;
+            border-radius:15px;
+            margin-bottom:20px;
+        }
+
+        .testimonial{
+            background:#fff;
+            border-radius:20px;
+            padding:30px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        /* Footer */
+        footer{
+            background: #0f172a;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        /* Main footer layout */
+        .footer-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /*flex-wrap: wrap;*/
+            padding: 0 60px;
+            /* width: 30px; */
+        }
+
+        /* Left side */
+        .footer-left{
+            width: 350px;
+            display: flex;
+            align-items: center;
+            /* margin-left: 200px; */
+            /* margin-bottom: 20px; */
+            gap: 15px;
+        }
+
+        .footer-logo{
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand{
+            display: flex;
+            margin-top: 30px;
+            margin-right: -10px;
+        }
+        
+        .footer-brand2{
+            font-size: 28px;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 4px;
+        }
+        
+        .footer-brand2 span{
+            color:#6b9af0;
+            font-family: 'Impact', sans-serif;
+            font-size: 28px;
+            letter-spacing: 4px;
+        }
+        
+        .footer-brand3{
+            color: #d7dadc;
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin-bottom: -100px;
+            margin-left: -160px;
+        }
+        
+        /* center */
+        .footer-center{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+        
+        .footer-links{
+            display: flex;
+            flex-direction: column;    
+            align-items: center;
+            gap: 15px;
+        }
+
+
+        .footer-links h1{
+            font-size: 20px;   
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+            
+        }
+
+        .footer-links a{
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 14px;
+            border-bottom: 1px solid white;
+            padding-bottom: 2px;
+            margin-top: 5px;
+        }
+        
+        .footer-links a:hover{
+            color: black; 
+            background: #c7a85c;
+            padding: 4px 8px;
+            border-radius: 8px;
+            transform: scale(1.05);
+        }
+
+        /* right side */
+        .footer-right{
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+        }
+        
+        /* Social media section */
+        .footer-social{
+            text-align: right;
+        }
+
+
+        .footer-social h1{
+            margin-right: 200px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+
+        .footer-social2{
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-right: 90px;
+        }
+
+        .footer-social2 a{
+            margin-right: 10px;
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+
+        }
+
+
+        .footer-social2 a:hover{
+            color: #38bdf8;
+            transform: scale(1.2);
+        }
+        
+        /* Search Box */
+        .search-box{
+            position: relative;
+            width: 250px;
+            margin-right: 50px;
+
+        }
+
+        .search-box input{
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #38414f;
+            color: rgb(82, 78, 78);
+            
+        }
+
+        .search-box input::placeholder{
+            color: #d7dadc;
+        }
+        
+        .search-box input:focus{
+            outline: none;
+            background: transparent;
+            color: white;
+        }
+
+        .search-box i{
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+        }
+
+        .search-box i:focus{
+            color: black;
+            background: white;
+            /*transform: scale(1.2);*/
+        }
+        
+        /* footer bottom */
+        .footer-bottom{
+            margin-top:40px;
+            padding-top:20px;
+            border-top:1px solid rgba(255,255,255,0.1);
+            text-align:center;
+        }
+
+        .footer-bottom p{
+            margin:0;
+            font-size:13px;
+            color:#d7dadc;
+        }
+
+        /* Floating Chat Widget */
+        .chat-widget{
+            position: fixed;
+            bottom: 140px;
+            right: 10px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Tooltip */
+        .chat-tooltip{
+            background: #575757;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight:  bold;
+            margin-bottom: 15px;
+            position: relative;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Tooltip Arrow */
+        .chat-tooltip::after{
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: #5d5c5c transparent transparent transparent;
+        }
+
+
+        /* Chat Circle Button */
+        .chat-button{
+            width: 50px;
+            height: 50px;
+            background: #d1b36a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        
+        /* Chat Icon */
+        .chat-button i{
+            font-size: 20px;
+            color: white;
+        }
+
+        .chat-button i:hover{
+            color: black;
+        }
+
+
+        /* Hover Effect */
+        .chat-button:hover{
+            transform: scale(1.1);
+            background: #c7a85c;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn{
+            from{
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Book Appointment Button */
+        .appointment-button{
+            position: fixed;
+            bottom: 80px;
+            right: 35px;
+            background-color: #d1b36a;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 30px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .appointment-button i{
+            color: white;
+            font-size: 20px;
+        }
+
+        .appointment-button i:hover{
+            color: black;
+        }
+
+        .appointment-button:hover{
+            background-color: #c7a85c;
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Scroll to Top Button */
+        .arrow-up-button{
+            position: fixed;
+            bottom: 20px;
+            right: 35px;
+            background-color: #d1b36a;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 30px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .arrow-up-button i{
+            color: white;
+            font-size: 20px;
+        }
+
+        .arrow-up-button i:hover{
+            color: black;
+        }
+
+        .arrow-up-button:hover{
+            background-color: #c7a85c;
+            opacity: 1;
+            transform: scale(1.1); 
+        }
+        
+
+        @media(max-width:768px){
+
+            .hero{
+                text-align:center;
+            }
+
+            .hero h1{
+                font-size:36px;
+            }
+
+            .hero img{
+                margin-top:40px;
+            }
+
+            .footer .container{
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-left, 
+            .footer-center, 
+            .footer-right{
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-social{
+                align-items: center;
+            }
+
+            .search-box{
+                width: 100%;
+                max-width: 300px;
+            }
+    
+            .search-box i{
+                left: 10px;
+            }
+        }
+        </style>
+    </head>
+
+    <body>
+        <!-- Homepage -->
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark py-3">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="images/mindEase.png" alt="MindEase" width="40" height="40">
+                    <p>Mind</p>
+                    <span>Ease</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="navbar-container">
+                    <!-- center menu-->
+                    <div class="navbar1" id="menu">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#home">Home</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#services">Services</a>
+                            </li>
+
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="#expertise">Expertise</a>                        
+                            </li>
+
+                        
+                            <li class="nav-item">                            
+                                <a class="nav-link" href="#testimonials">Testimonials</a>                        
+                            </li>
+
+                            <li class="nav-item">                            
+                                <a class="nav-link" href="#contact">Contact Us</a>
+                            </li>
+                        </ul>                                                       
+                    </div>
+                </div>
+            
+            <!-- right icons-->
+            <div class="navbar2" id="menu">
+                <ul class="navbar-icons">
+                    <li class="nav-item2">
+                        <a class="nav-link2" href="#">
+                            <i class="bi bi-search"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li class="nav-item2">
+                        <a class="nav-link2" href="sign in.html">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>    
+        </div>
+    </nav>
+    
+    <!-- first section-->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content"></div>
+                <h1>AI Mental Health Wellbeing Platform</h1>
+
+                <p>Improve your emotional wellbeing with AI-powered support, therapy tracking, mindfulness exercises, and professional guidance.</p>
+                
+                <div class="hero-btn">
+                    <a href="#" class="getStartedBtn" onclick="window.location.href='sign up.html'">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SERVICES -->
+
+    <section class="py-5" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>AI-powered mental wellness solutions</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <i class="bi bi-chat-dots-fill"></i>
+                        <h4>AI Therapy Chat</h4>
+                        <p>Talk with our AI mental wellness assistant anytime for emotional support.</p>
+                    </div>
+                </div>
+
+            
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                        <h4>Mood Tracking</h4>
+                        <p>Monitor your emotional health daily with smart analytics and insights.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <i class="bi bi-activity"></i>
+                    <h4>Stress Analysis</h4>
+                    <p>AI detects stress patterns and provides calming recommendations.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <i class="bi bi-moon-stars-fill"></i>
+                    <h4>Sleep Monitoring</h4>
+                    <p>Improve your sleep habits using AI-based sleep tracking.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <i class="bi bi-person-heart"></i>
+                    <h4>Professional Counseling</h4>
+                    <p>Connect with certified therapists and wellbeing experts.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <i class="bi bi-brain"></i>
+                    <h4>Mindfulness Training</h4>
+                    <p> Guided breathing, meditation, and focus improvement exercises.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="ai-section" id="expertise">
+    <div class="container">
+
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4">
+                    Expertise
+                </h2>
+
+                <p class="mb-4">
+                    Our advanced AI assistant provides emotional support,
+                    wellness suggestions, mood insights, and mindfulness coaching 24/7.
+                </p>
+
+                <div class="feature-box">
+                    <h5>✔ Smart Emotional Analysis</h5>
+                </div>
+
+                <div class="feature-box">
+                    <h5>✔ Personalized Wellness Plans</h5>
+                </div>
+
+                <div class="feature-box">
+                    <h5>✔ AI Meditation Guidance</h5>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <img class="img-fluid rounded-4"
+                     src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+                     alt="AI Assistant">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-5" id="testimonials">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>What Users Say</h2>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>
+                        “This platform helped me reduce stress and improve my daily mindset.”
+                    </p>
+                    <h6 class="fw-bold mt-3">Sarah Lee</h6>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>
+                        “The AI therapy assistant feels supportive and available anytime.”
+                    </p>
+                    <h6 class="fw-bold mt-3">Daniel Wong</h6>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>
+                        “I love the mood tracking and meditation guidance features.”
+                    </p>
+                    <h6 class="fw-bold mt-3">Aisha Karim</h6>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT US -->
+<section class="py-5 bg-light">
+    <div class="container" id="contact">
+
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <form>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <input type="email" class="form-control" placeholder="Email Address">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="5" placeholder="Write your message"></textarea>
+                    </div>
+
+                    <button class="btn-custom">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer section -->
+<footer>
+    <div class="footer-container">
+        <!-- left -->
+        <div class="footer-left">
+            <a class="footer-brand" href="#">
+                <img src="images/mindEase.png" alt="MindEase" class="footer-logo">
+            </a>
+
+            <div class="footer-brand2" href="#">
+                Mind<span>Ease</span>
+            </div>
+
+            <div class="footer-brand3" href="#">
+                <p>
+                    AI Mental Health Wellbeing
+                </p>
+            </div>
+        </div>
+
+        <!-- center -->
+        <div class="footer-center">
+            <div class="footer-links">
+                <h1>Quick Links</h1>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+        </div>
+        
+
+        <!-- right -->
+        <div class="footer-right">
+            <div class="footer-social">
+                <h1>Follow Us</h1>
+
+                <div class="footer-social2">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>               
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © 2026 MindEase: AI Mental Health Wellbeing Application | All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<!-- Floating Chat Widget -->
+<div class="chat-widget">
+
+    <!-- Tooltip -->
+    <div class="chat-tooltip">
+        Chat with Us
+    </div>
+
+    <!-- Chat Button -->
+    <div class="chat-button" onclick="aiChatFunction()">
+        <i class="bi bi-chat"></i>
+    </div>
+
+    <!-- Book Appoinment Button -->
+    <div class="appointment-button" onclick="appointmentFunction()" id="appointmentBtn">
+        <i class="bi bi-calendar-event"></i>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="arrow-up-button" onclick="topFunction()" id="scrollToTopBtn">
+        <i class="bi bi-arrow-up"></i>
+    </div>
+
+</div>
+
+
+<script>
+    function appointmentFunction(){
+        // Redirect to book appoinment page or open appointment widget
+        window.location.href = "appoinment.html";
+    }
+
+    function aiChatFunction() {
+        // Redirect to AI chat page or open chat widget
+        window.location.href = "aichat.html"; // Change this to your AI chat page URL
+    }
+
+    //Get the button
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

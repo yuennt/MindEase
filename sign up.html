@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+        height: 100vh;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        /*background:linear-gradient(200deg, #b3f8e385, #6de3f3);*/
+        background: linear-gradient(rgba(187, 180, 180, 0.5), rgba(172, 161, 161, 0.5)),
+        url('images/smile 2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .container{
+        width: 950px;
+        height: auto;
+        display: flex;
+        border-radius: 12px; 
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        background: #fff;
+    }
+
+    /* Left Panel */
+    .left.panel{
+        flex: 1; 
+        /*background: linear-gradient(150deg, #0e7aa7, #6aa3d9);*/
+        /*position: relative; */
+        background: url('images/mentalhealth.jpg');
+        background-size: cover;
+        background-position: right;
+        color: white; 
+        padding: 30px; 
+        display: flex;
+        flex-direction: column; 
+        justify-content: center; 
+        overflow: hidden; 
+        /* align-items: center; */
+    }
+
+    .left.panel h1{
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        z-index: 2;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .left.panel p{
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 350px;
+        z-index: 2;
+        display: block; 
+        margin: 0 auto; 
+        text-align: center;
+    }
+
+    .left.panel .Signinbtn{
+        /*top: 20px;
+        right: 150px;
+        position: absolute;*/
+        width: 150px;
+        padding: 15px;
+        /*background: transparent;*/
+        background: transparent;
+        border: 3px solid white;
+        color: white;
+        font-size: 18px;
+        font-weight: bold; 
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.5s; 
+        align-items: center;
+        margin-top: 40px;
+        margin-left: 130px;
+        /*display: block; */
+        /*margin: 10px auto; */
+    }
+
+    .left.panel .Signinbtn:hover{
+        background: transparent;
+        opacity: 0.9;
+        transform: scale(1.05);
+    }
+
+    .left.panel .Signinbtn a{
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Right Panel */
+    .right.panel{
+        flex: 1;
+        padding: 30px;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center; 
+    }
+
+    .form-box{
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        /*max-width: 400px;
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);*/
+    }
+
+    .goBackbtn{
+        position: absolute;
+        margin-top: -30px;
+        margin-left: -10px;
+        color: black;
+        border: none;
+        font-size: 28px; 
+        font-weight: bold;
+        cursor: pointer;
+        background: transparent;
+        transition: 0.3s;
+    }
+
+    .goBackbtn:hover{
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    .form-box h2{
+        font-size: 24px;
+        font-weight: bold;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: black;
+        /*margin-left: 70px;*/
+        display: flex;
+    }
+
+    .form-box p{
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 30px;
+        /*margin-left: 10px;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input-group{
+        margin-bottom: 20px;
+    }
+
+    .input-group input{
+        width: 80%; 
+        height: 50px; 
+        border: 3px solid #cfc5c5;
+        border-radius: 15px; 
+        border-bottom: 3px solid #a6a3a3; 
+        padding: 20px; 
+        font-size: 16px;
+        outline: none;
+        transition: 0.1s;
+        background: transparent;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .input-group input:focus{
+        border: 3px solid #1d8db4; 
+    }
+
+    .Signupbtn{
+        width: 80%;
+        padding: 14px;
+        border: none;
+        border-radius: 15px; 
+        background:#1d8db4;
+        color: white;
+        font-size: 18px; 
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s; 
+        display: block;
+        margin: 0 auto;
+    }
+
+    .Signupbtn:hover{
+        opacity: 0.9;
+        transform: scale(1.05); 
+    }
+
+    .option{
+        display: flex; 
+        align-items: center; 
+        gap: 10px;
+        margin-bottom: 30px;
+        color: #666;
+        font-size: 14px;
+        justify-content: center;
+        margin-top: 30px;
+    } 
+
+
+
+</style>
+
+<body>
+    <div class="container">
+        <!-- Left Side-->
+         
+        <div class="left panel">
+            <h1>Welcome Back!</h1>
+            <p>
+                To keep connected with us please login with your personal info
+            </p>
+            
+            <button class="Signinbtn">
+            <a href="sign in.html">Sign In</a></button>
+        </div>
+
+        
+        
+        <!-- Right Side-->
+         <div class="right panel">
+            <!--Sign Up Form-->
+             <div class="form-box" id="signinForm">
+                <button class="goBackbtn" onclick="window.location.href= 'homepage.html'">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+
+                <h2>Create Account</h2> 
+                <p>
+                    Please enter your credentials to create a new account
+                </p>
+                
+                <div class="input-group">
+                    <input type="text" placeholder="Full Name"/>
+                </div>
+                
+                <div class="input-group">
+                    <input type="email" placeholder="Email"/>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" placeholder="Password"/>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" placeholder="Confirm Password"/>
+                </div>
+
+                <button class="Signupbtn">Sign Up</button>
+
+                <div class="option">
+                    <input type="checkbox"/>
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+
+            </div>
+         </div>
+</body>
+</html>
