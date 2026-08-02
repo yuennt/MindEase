@@ -1,0 +1,148 @@
+.form-container {
+    width: 450px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.emotion {
+    position: absolute;
+    font-size: 80px;
+    opacity: 0.3;
+    color: rgb(3, 80, 94);
+    pointer-events: none;
+}
+
+.happy {
+    top: -15px;
+    right: -10px;
+    transform: rotate(-15deg);
+}
+
+.sad {
+    bottom: -20px;
+    left: -10px;
+    transform: rotate(-15deg);
+}
+
+.goBackbtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: black;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    background: transparent;
+    transition: 0.1s;
+}
+
+.goBackbtn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+h2 {
+    font-size: 26px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    color: black;
+}
+
+p {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 3px solid rgb(171, 164, 164);
+    border-radius: 15px;
+    font-size: 12px;
+    outline: none;
+    transition: 0.1s;
+}
+
+.input-group input:focus {
+    border: 3px solid #666;
+}
+
+.password-group {
+    position: relative;
+}
+
+.password-group input {
+    padding-right: 50px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.signupBtn {
+    width: 40%;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    background: #b58422;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.signupBtn:hover {
+    background: #a97d2e;
+    color: white;
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.signinBtn {
+    width: 40%;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    background: #b58422;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.signinBtn:hover {
+    background: #a97d2e;
+    color: white;
+    opacity: 1;
+    transform: scale(1.05);
+}
