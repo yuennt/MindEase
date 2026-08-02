@@ -1,88 +1,98 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['user_email'])) {
+    header("Location: signIn.php");
+    exit();
+}
+
 $conn = mysqli_connect("localhost", "root", "", "mindease");
 
 if (!$conn) {
     die("Connection Failed: " . mysqli_connect_error());
 }
 
-if (isset($_POST['reset'])) {
+$email = $_SESSION['user_email'];
 
-    $email = trim($_POST['email']);
-    $newPassword = trim($_POST['new_password']);
-    $confirmPassword = trim($_POST['confirm_password']);
+if (isset($_POST['change'])) {
+    $current = trim($_POST['current_password']);
+    $new = trim($_POST['new_password']);
+    $confirm = trim($_POST['confirm_password']);
 
-    // Empty validation
-    if (empty($email) || empty($newPassword) || empty($confirmPassword)) {
+    // Get current password
+    $stmt = $conn->prepare("SELECT password FROM user WHERE email=?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
 
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 0) {
         echo "<script>
-        alert('Please fill in all fields.');
-        window.location='forgotPassword.php';
-        </script>";
+                alert('User not found.');
+                window.location='changePassword.php';
+              </script>";
         exit();
     }
 
-    // Email validation
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $user = $result->fetch_assoc();
+
+    // Check current password
+    if ($current != $user['password']) {
         echo "<script>
-        alert('Invalid email address.');
-        window.location='forgotPassword.php';
-        </script>";
+                alert('Current password is incorrect!');
+                window.location='changePassword.php';
+              </script>";
         exit();
     }
 
     // Password length
-    if (strlen($newPassword) < 6) {
+    if (strlen($new) < 6) {
         echo "<script>
-        alert('Password must be at least 6 characters.');
-        window.location='forgotPassword.php';
-        </script>";
+                alert('New password must be at least 6 characters.');
+                window.location='changePassword.php';
+              </script>";
         exit();
     }
 
-    // Password match
-    if ($newPassword != $confirmPassword) {
+    // Confirm password
+    if ($new != $confirm) {
         echo "<script>
-        alert('Passwords do not match.');
-        window.location='forgotPassword.php';
-        </script>";
+                alert('New passwords do not match.');
+                window.location='changePassword.php';
+              </script>";
         exit();
     }
 
-    // Check email
-    $check = $conn->prepare("SELECT * FROM user WHERE email=?");
-    $check->bind_param("s", $email);
-    $check->execute();
-
-    $result = $check->get_result();
-
-    if ($result->num_rows == 0) {
+    // Same password
+    if ($current == $new) {
         echo "<script>
-        alert('Email not found.');
-        window.location='forgotPassword.php';
-        </script>";
+                alert('New password must be different from current password.');
+                window.location='changePassword.php';
+              </script>";
         exit();
     }
 
     // Update password
     $update = $conn->prepare("UPDATE user SET password=?, confirmPassword=? WHERE email=?");
-    $update->bind_param("sss", $newPassword, $confirmPassword, $email);
+    $update->bind_param("sss", $new, $confirm, $email);
 
     if ($update->execute()) {
+
         echo "<script>
-        alert('Password reset successfully!');
-        window.location='signIn.php';
-        </script>";
+                alert('Password changed successfully!');
+                window.location='profile.php';
+              </script>";
     } else {
 
         echo "<script>
-        alert('Failed to reset password.');
-        </script>";
+                alert('Failed to change password!');
+              </script>";
+
+        echo mysqli_error($conn);
     }
 
-    $check->close();
     $update->close();
+    $stmt->close();
 }
 
 mysqli_close($conn);
@@ -96,7 +106,7 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Forgot Password</title>
+    <title>Change Password</title>
     <link rel="icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -113,7 +123,7 @@ mysqli_close($conn);
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             background: linear-gradient(rgba(187, 180, 180, .5), rgba(172, 161, 161, .5)),
                 url('images/smile 2.jpg');
             background-size: cover;
@@ -123,7 +133,7 @@ mysqli_close($conn);
         .card {
             width: 420px;
             padding: 40px;
-            background: rgba(255, 255, 255, .18);
+            background: rgba(255, 255, 255, .2);
             backdrop-filter: blur(10px);
             border-radius: 25px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
@@ -142,17 +152,17 @@ mysqli_close($conn);
 
         h2 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .input-group {
-            position: relative;
             margin-bottom: 18px;
+            position: relative;
         }
 
         .input-group input {
             width: 100%;
-            padding: 12px 45px 12px 15px;
+            padding: 12px 45px 12px 12px;
             background: rgba(255, 255, 255, 0.25);
             border: 3px solid #bbb;
             border-radius: 15px;
@@ -166,8 +176,8 @@ mysqli_close($conn);
 
         .toggle {
             position: absolute;
-            right: 15px;
             top: 50%;
+            right: 15px;
             transform: translateY(-50%);
             cursor: pointer;
             font-size: 20px;
@@ -194,91 +204,49 @@ mysqli_close($conn);
             transform: scale(1.02);
         }
     </style>
-
 </head>
 
 <body>
-
     <div class="card">
-
-        <button class="back" onclick="window.location='signIn.php'">
+        <button class="back" onclick="window.location='profile.php'">
             <i class="bi bi-arrow-left"></i>
         </button>
 
-        <h2>Forgot Password</h2>
+        <h2>Change Password</h2>
 
         <form method="POST">
-
             <div class="input-group">
-
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Registered Email"
-                    required>
-
+                <input type="password" name="current_password" id="current" placeholder="Current Password" required>
+                <i class="bi bi-eye-slash toggle" onclick="togglePassword('current',this)"></i>
             </div>
 
             <div class="input-group">
-
-                <input
-                    type="password"
-                    id="new"
-                    name="new_password"
-                    placeholder="New Password"
-                    required>
-
-                <i class="bi bi-eye-slash toggle"
-                    onclick="togglePassword('new',this)"></i>
-
+                <input type="password" name="new_password" id="new" placeholder="New Password" required>
+                <i class="bi bi-eye-slash toggle" onclick="togglePassword('new',this)"></i>
             </div>
 
             <div class="input-group">
-
-                <input
-                    type="password"
-                    id="confirm"
-                    name="confirm_password"
-                    placeholder="Confirm Password"
-                    required>
-
-                <i class="bi bi-eye-slash toggle"
-                    onclick="togglePassword('confirm',this)"></i>
-
+                <input type="password" name="confirm_password" id="confirm" placeholder="Confirm New Password" required>
+                <i class="bi bi-eye-slash toggle" onclick="togglePassword('confirm',this)"></i>
             </div>
 
-            <button
-                type="submit"
-                name="reset"
-                class="btn">
-
-                Reset Password
-
+            <button type="submit" name="change" class="btn">
+                Change Password
             </button>
-
         </form>
 
     </div>
 
     <script>
         function togglePassword(id, icon) {
-
             const input = document.getElementById(id);
 
             if (input.type === "password") {
-
                 input.type = "text";
-
-                icon.classList.remove("bi-eye-slash");
-                icon.classList.add("bi-eye");
-
+                icon.classList.replace("bi-eye-slash", "bi-eye");
             } else {
-
                 input.type = "password";
-
-                icon.classList.remove("bi-eye");
-                icon.classList.add("bi-eye-slash");
-
+                icon.classList.replace("bi-eye", "bi-eye-slash");
             }
 
         }
